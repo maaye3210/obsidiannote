@@ -11,8 +11,6 @@
 5.  HTTPS 与 HTTP
 6.  HTTP/1.1、HTTP/2、HTTP/3 演变
 
-![提纲](https://img-blog.csdnimg.cn/6b9bfd38d2684b3f9843ebabf8771212.png)
-
 ## HTTP 基本概念
 
 ### HTTP 是什么？
@@ -27,16 +25,12 @@ HTTP的名字「超文本协议传输」，它可以拆成三个部分：
 -   传输
 -   协议
 
-![三个部分](https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/HTTP/3-HTTP%E4%B8%89%E9%83%A8%E5%88%86.png)
-
 #### 1. 「协议」
 
 在生活中，我们也能随处可见「协议」，例如：
 
 -   刚毕业时会签一个「三方协议」；
 -   找房子时会签一个「租房协议」；
-
-![三方协议和租房协议](https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/HTTP/4-%E7%A7%9F%E6%88%BF%E5%92%8C%E4%B8%89%E6%96%B9%E5%8D%8F%E8%AE%AE.png)
 
 生活中的协议，本质上与计算机中的协议是相同的，协议的特点:
 
@@ -56,8 +50,6 @@ HTTP 是一个用在计算机世界里的**协议**。它使用计算机能够�
 HTTP 协议是一个**双向协议**。
 
 我们在上网冲浪时，浏览器是请求方 A ，百度网站就是应答方 B。双方约定用 HTTP 协议来通信，于是浏览器把请求数据发送给网站，网站再把一些数据返回给浏览器，最后由浏览器渲染在屏幕，就可以看到图片、视频了。
-
-![请求 - 应答](https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/HTTP/5-%E8%AF%B7%E6%B1%82%E5%BA%94%E7%AD%94.png)
 
 数据虽然是在 A 和 B 之间传输，但允许中间有**中转或接力**。
 
@@ -88,8 +80,6 @@ OK，经过了对 HTTP 里这三个名词的详细解释，就可以给出比「
 这种说法是**不正确**的。因为也可以是「服务器< -- >服务器」，所以采用**两点之间**的描述会更准确。
 
 ### HTTP 常见的状态码有哪些？
-
-![五大类 HTTP 状态码](https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/HTTP/6-%E4%BA%94%E5%A4%A7%E7%B1%BBHTTP%E7%8A%B6%E6%80%81%E7%A0%81.png)
 
 `1xx` 类状态码属于**提示信息**，是协议处理中的一种中间状态，实际用到的比较少。
 
@@ -127,8 +117,6 @@ _Host_ 字段
 
 客户端发送请求时，用来指定服务器的域名。
 
-![](https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/HTTP/7-HOST%E5%AD%97%E6%AE%B5.png)
-
 Host: www.A.com
 
 有了 `Host` 字段，就可以将请求发往「同一台」服务器上的不同网站。
@@ -136,8 +124,6 @@ Host: www.A.com
 _Content-Length 字段_
 
 服务器在返回数据时，会有 `Content-Length` 字段，表明本次回应的数据长度。
-
-![](https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/HTTP/8-content-length%E5%AD%97%E6%AE%B5.png)
 
 Content-Length: 1000
 
@@ -149,11 +135,7 @@ _Connection 字段_
 
 `Connection` 字段最常用于客户端要求服务器使用「 HTTP 长连接」机制，以便其他请求复用。
 
-![](https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/HTTP/9-connection%E5%AD%97%E6%AE%B5.png)
-
 HTTP 长连接的特点是，只要任意一端没有明确提出断开连接，则保持 TCP 连接状态。
-
-![HTTP 长连接](https://img-blog.csdnimg.cn/img_convert/d2b20d1cc03936332adb2a68512eb167.png)
 
 HTTP/1.1 版本的默认连接都是长连接，但为了兼容老版本的 HTTP，需要指定 `Connection` 首部字段的值为 `Keep-Alive`。
 
@@ -166,8 +148,6 @@ PS：大家不要把 HTTP Keep-Alive 和 TCP Keepalive 搞混了，这两个虽�
 _Content-Type 字段_
 
 `Content-Type` 字段用于服务器回应时，告诉客户端，本次数据是什么格式。
-
-![](https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/HTTP/10-content-type%E5%AD%97%E6%AE%B5.png)
 
 Content-Type: text/html; charset=utf-8
 
@@ -182,8 +162,6 @@ Accept: */*
 _Content-Encoding 字段_
 
 `Content-Encoding` 字段说明数据的压缩方法。表示服务器返回的数据使用了什么压缩格式
-
-![](https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/HTTP/11-content-encoding%E5%AD%97%E6%AE%B5.png)
 
 Content-Encoding: gzip
 
@@ -203,13 +181,9 @@ Accept-Encoding: gzip, deflate
 
 比如，你打开我的文章，浏览器就会发送 GET 请求给服务器，服务器就会返回文章的所有文字及资源。
 
-![GET 请求](https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/HTTP/12-Get%E8%AF%B7%E6%B1%82.png)
-
 根据 RFC 规范，**POST 的语义是根据请求负荷（报文body）对指定的资源做出处理**，具体的处理方式视资源类型而不同。POST 请求携带数据的位置一般是写在报文 body 中， body 中的数据可以是任意格式的数据，只要客户端与服务端协商好即可，而且浏览器不会对 body 大小做限制。
 
 比如，你在我文章底部，敲入了留言后点击「提交」（**暗示你们留言**），浏览器就会执行一次 POST 请求，把你的留言文字放进了报文 body 里，然后拼接好 POST 请求头，通过 TCP 协议发送给服务器。
-
-![POST 请求](https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/HTTP/13-Post%E8%AF%B7%E6%B1%82.png)
 
 ### GET 和 POST 方法都是安全和幂等的吗？
 
@@ -266,8 +240,6 @@ HTTP 缓存有两种实现方式，分别是**强制缓存和协商缓存**。
 
 如下图中，返回的是 200 状态码，但在 size 项中标识的是 from disk cache，就是使用了强制缓存。
 
-![](https://img-blog.csdnimg.cn/1cb6bc37597e4af8adfef412bfc57a42.png)
-
 强缓存是利用下面这两个 HTTP 响应头部（Response Header）字段实现的，它们都用来表示资源在客户端缓存的有效期：
 
 -   `Cache-Control`， 是一个相对时间；
@@ -284,8 +256,6 @@ Cache-control 选项更多一些，设置更加精细，所以建议使用 Cache
 ### 什么是协商缓存？
 
 当我们在浏览器使用开发者工具的时候，你可能会看到过某些请求的响应码是 `304`，这个是告诉浏览器可以使用本地缓存的资源，通常这种通过服务端告知客户端是否可以使用缓存的方式被称为协商缓存。
-
-![](https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost4@main/%E7%BD%91%E7%BB%9C/http1.1%E4%BC%98%E5%8C%96/%E7%BC%93%E5%AD%98etag.png)
 
 上图就是一个协商缓存的过程，所以**协商缓存就是与服务端协商之后，通过协商结果来判断是否使用本地缓存**。
 
@@ -314,8 +284,6 @@ Cache-control 选项更多一些，设置更加精细，所以建议使用 Cache
 注意，**协商缓存这两个字段都需要配合强制缓存中 Cache-control 字段来使用，只有在未能命中强制缓存的时候，才能发起带有协商缓存字段的请求**。
 
 下图是强制缓存和协商缓存的工作流程：
-
-![](https://cdn.xiaolincoding.com/gh/xiaolincoder/network/http/http%E7%BC%93%E5%AD%98.png)
 
 当使用 ETag 字段实现的协商缓存的过程：
 
@@ -375,8 +343,6 @@ HTTP 协议里有优缺点一体的**双刃剑**，分别是「无状态、明�
 
 相当于，**在客户端第一次请求后，服务器会下发一个装有客户信息的「小贴纸」，后续客户端请求服务器的时候，带上「小贴纸」，服务器就能认得了了**，
 
-![Cookie 技术](https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/HTTP/14-cookie%E6%8A%80%E6%9C%AF.png)
-
 #### 2. 明文传输双刃剑
 
 明文意味着在传输过程中的信息，是可方便阅读的，比如 Wireshark 抓包都可以直接肉眼查看，为我们调试工作带了极大的便利性。
@@ -405,8 +371,6 @@ HTTP 协议是基于 **TCP/IP**，并且使用了「**请求 - 应答**」的通
 
 持久连接的特点是，只要任意一端没有明确提出断开连接，则保持 TCP 连接状态。
 
-![短连接与长连接](https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/HTTP/16-%E7%9F%AD%E8%BF%9E%E6%8E%A5%E4%B8%8E%E9%95%BF%E8%BF%9E%E6%8E%A5.png)
-
 当然，如果某个 HTTP 长连接超过一定时间没有任何数据交互，服务端就会主动断开这个连接。
 
 #### 2. 管道网络传输
@@ -416,8 +380,6 @@ HTTP/1.1 采用了长连接的方式，这使得管道（pipeline）网络传输
 即可在同一个 TCP 连接里面，客户端可以发起多个请求，只要第一个请求发出去了，不必等其回来，就可以发第二个请求出去，可以**减少整体的响应时间。**
 
 举例来说，客户端需要请求两个资源。以前的做法是，在同一个 TCP 连接里面，先发送 A 请求，然后等待服务器做出回应，收到后再发出 B 请求。那么，管道机制则是允许浏览器同时发出 A 请求和 B 请求，如下图：
-
-![管道网络传输](https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/HTTP/17-%E7%AE%A1%E9%81%93%E7%BD%91%E7%BB%9C%E4%BC%A0%E8%BE%93.png)
 
 但是**服务器必须按照接收请求的顺序发送对这些管道化请求的响应**。
 
@@ -434,8 +396,6 @@ HTTP/1.1 采用了长连接的方式，这使得管道（pipeline）网络传输
 「请求 - 应答」的模式加剧了 HTTP 的性能问题。
 
 因为当顺序发送的请求序列中的一个请求因为某种原因被阻塞时，在后面排队的所有请求也一同被阻塞了，会招致客户端一直请求不到数据，这也就是「**队头阻塞**」，好比上班的路上塞车。
-
-![队头阻塞](https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/HTTP/18-%E9%98%9F%E5%A4%B4%E9%98%BB%E5%A1%9E.png)
 
 总之 HTTP/1.1 的性能一般般，后续的 HTTP/2 和 HTTP/3 就是在优化 HTTP 的性能。
 
@@ -456,7 +416,6 @@ HTTP 由于是明文传输，所以安全上存在以下三个风险：
 -   **篡改风险**，比如强制植入垃圾广告，视觉污染，用户眼容易瞎。
 -   **冒充风险**，比如冒充淘宝网站，用户钱容易没。
 
-![HTTP 与 HTTPS 网络层](https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/HTTP/19-HTTPS%E4%B8%8EHTTP.png)
 
 HTTP**S** 在 HTTP 与 TCP 层之间加入了 `SSL/TLS` 协议，可以很好的解决了上述的风险：
 
@@ -476,8 +435,6 @@ HTTP**S** 在 HTTP 与 TCP 层之间加入了 `SSL/TLS` 协议，可以很好的
 
 通过**混合加密**的方式可以保证信息的**机密性**，解决了窃听的风险。
 
-![混合加密](https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/HTTP/20-%E6%B7%B7%E5%90%88%E5%8A%A0%E5%AF%86.png)
-
 HTTPS 采用的是**对称加密**和**非对称加密**结合的「混合加密」方式：
 
 -   在通信建立前采用**非对称加密**的方式交换「会话秘钥」，后续就不再使用非对称加密。
@@ -495,8 +452,6 @@ HTTPS 采用的是**对称加密**和**非对称加密**结合的「混合加密
 对方收到后，先是对内容也计算出一个「指纹」，然后跟发送方发送的「指纹」做一个比较，如果「指纹」相同，说明内容没有被篡改，否则就可以判断出内容被篡改了。
 
 那么，在计算机里会**用摘要算法（哈希函数）来计算出内容的哈希值**，也就是内容的「指纹」，这个**哈希值是唯一的，且无法通过哈希值推导出内容**。
-
-![](https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/HTTP/%E6%91%98%E8%A6%81%E7%AE%97%E6%B3%95.png)
 
 通过哈希算法可以确保内容不会被篡改，**但是并不能保证「内容 + 哈希值」不会被中间人替换，因为这里缺少对客户端收到的消息是否来源于服务端的证明**。
 
@@ -521,8 +476,6 @@ HTTPS 采用的是**对称加密**和**非对称加密**结合的「混合加密
 一般我们不会用非对称加密来加密实际的传输内容，因为非对称加密的计算比较耗费性能的。
 
 所以非对称加密的用途主要在于**通过「私钥加密，公钥解密」的方式，来确认消息的身份**，我们常说的**数字签名算法**，就是用的是这种方式，不过私钥加密内容不是内容本身，而是**对内容的哈希值加密**。
-
-![](https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/HTTP/%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D.png)
 
 私钥是由服务端保管，然后服务端会向客户端颁发对应的公钥。如果客户端收到的信息，能被公钥解密，就说明该消息是由服务器发送的。
 
@@ -567,7 +520,6 @@ HTTPS 采用的是**对称加密**和**非对称加密**结合的「混合加密
 
 数字证书的工作流程，我也画了一张图，方便大家理解：
 
-![数子证书工作流程](https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/HTTP/22-%E6%95%B0%E5%AD%97%E8%AF%81%E4%B9%A6%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B.png)
 
 通过数字证书的方式保证服务器公钥的身份，解决冒充的风险。
 
@@ -584,8 +536,6 @@ SSL/TLS 协议基本流程：
 TLS 的「握手阶段」涉及**四次**通信，使用不同的密钥交换算法，TLS 握手流程也会不一样的，现在常用的密钥交换算法有两种：[RSA 算法](https://xiaolincoding.com/network/2_http/https_rsa.html) 和 [ECDHE 算法](https://xiaolincoding.com/network/2_http/https_ecdhe.html)。
 
 基于 RSA 算法的 TLS 握手过程比较容易理解，所以这里先用这个给大家展示 TLS 握手过程，如下图：
-
-![HTTPS 连接建立过程](https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/HTTP/23-HTTPS%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B.png)
 
 TLS 协议建立的详细流程：
 
@@ -649,7 +599,7 @@ TLS 协议建立的详细流程：
 
 如下图图所示，为数字证书签发和验证流程：
 
-![](https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost4@main/%E7%BD%91%E7%BB%9C/https/%E8%AF%81%E4%B9%A6%E7%9A%84%E6%A0%A1%E9%AA%8C.png)
+
 
 CA 签发证书的过程，如上图左边部分：
 
@@ -665,8 +615,6 @@ CA 签发证书的过程，如上图左边部分：
 
 但事实上，证书的验证过程中**还存在一个证书信任链的问题**，因为我们向 CA 申请的证书一般不是根证书签发的，而是由中间证书签发的，比如百度的证书，从下图你可以看到，证书的层级有三级：
 
-![](https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost4@main/%E7%BD%91%E7%BB%9C/https/baidu%E8%AF%81%E4%B9%A6.png)
-
 对于这种三级层级关系的证书的验证过程如下：
 
 -   客户端收到 baidu.com 的证书后，发现这个证书的签发者不是根证书，就无法根据本地已有的根证书中的公钥去验证 baidu.com 证书是否可信。于是，客户端根据 baidu.com 证书中的签发者，找到该证书的颁发机构是 “GlobalSign Organization Validation CA - SHA256 - G2”，然后向 CA 请求该中间证书。
@@ -677,15 +625,9 @@ CA 签发证书的过程，如上图左边部分：
 
 总括来说，由于用户信任 GlobalSign，所以由 GlobalSign 所担保的 baidu.com 可以被信任，另外由于用户信任操作系统或浏览器的软件商，所以由软件商预载了根证书的 GlobalSign 都可被信任。
 
-![](https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost4@main/%E7%BD%91%E7%BB%9C/https/%E7%94%A8%E6%88%B7%E4%BF%A1%E4%BB%BB.png)
-
 操作系统里一般都会内置一些根证书，比如我的 MAC 电脑里内置的根证书有这么多：
 
-![](https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost4@main/%E7%BD%91%E7%BB%9C/https/%E7%B3%BB%E7%BB%9F%E6%A0%B9%E8%AF%81%E4%B9%A6.png)
-
 这样的一层层地验证就构成了一条信任链路，整个证书信任链验证流程如下图所示：
-
-![](https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost4@main/%E7%BD%91%E7%BB%9C/https/%E8%AF%81%E4%B9%A6%E9%93%BE.png)
 
 最后一个问题，为什么需要证书链这么麻烦的流程？Root CA 为什么不直接颁发证书，而是要搞那么多中间层级呢？
 
@@ -699,8 +641,6 @@ TLS 在实现上分为**握手协议**和**记录协议**两层：
 -   TLS 记录协议负责保护应用程序数据并验证其完整性和来源，所以对 HTTP 数据加密是使用记录协议；
 
 TLS 记录协议主要负责消息（HTTP 数据）的压缩，加密及数据的认证，过程如下图：
-
-![](https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/HTTP/%E8%AE%B0%E5%BD%95%E5%8D%8F%E8%AE%AE.png)
 
 具体过程如下：
 
@@ -717,11 +657,10 @@ TLS 记录协议主要负责消息（HTTP 数据）的压缩，加密及数据�
 
 之前有读者在字节面试的时候，被问到：**HTTPS 一定安全可靠吗？**
 
-![](https://cdn.xiaolincoding.com/gh/xiaolincoder/network/http/%E6%8F%90%E9%97%AE.jpeg)
 
 这个问题的场景是这样的：客户端通过浏览器向服务端发起 HTTPS 请求时，被「假基站」转发到了一个「中间人服务器」，于是客户端是和「中间人服务器」完成了 TLS 握手，然后这个「中间人服务器」再与真正的服务端完成 TLS 握手。
 
-![](https://cdn.xiaolincoding.com/gh/xiaolincoder/network/http/https%E4%B8%AD%E9%97%B4%E4%BA%BA.drawio.png)
+
 
 具体过程如下：
 
@@ -736,7 +675,6 @@ TLS 记录协议主要负责消息（HTTP 数据）的压缩，加密及数据�
 
 中间人服务器与客户端在 TLS 握手过程中，实际上发送了自己伪造的证书给浏览器，而这个伪造的证书是能被浏览器（客户端）识别出是非法的，于是就会提醒用户该证书存在问题。
 
-![](https://cdn.xiaolincoding.com/gh/xiaolincoder/network/http/%E8%AF%81%E4%B9%A6%E5%AE%89%E5%85%A8%E6%8F%90%E7%A4%BA.png)
 
 如果用户执意点击「继续浏览此网站」，相当于用户接受了中间人伪造的证书，那么后续整个 HTTPS 通信都能被中间人监听了。
 
@@ -777,7 +715,7 @@ TLS 记录协议主要负责消息（HTTP 数据）的压缩，加密及数据�
 
 一般我们的 HTTPS 是单向认证，客户端只会验证了服务端的身份，但是服务端并不会验证客户端的身份。
 
-![](https://cdn.xiaolincoding.com/gh/xiaolincoder/network/http/%E5%8F%8C%E5%90%91%E8%AE%A4%E8%AF%81.png)
+
 
 如果用了双向认证方式，不仅客户端会验证服务端的身份，而且服务端也会验证客户端的身份。服务端一旦验证到请求自己的客户端为不可信任的，服务端就拒绝继续通信，客户端如果发现服务端为不可信任的，那么也中止通信。
 
@@ -802,7 +740,7 @@ HTTP/1.1 相比 HTTP/1.0 性能上的改进：
 
 HTTP/2 协议是基于 HTTPS 的，所以 HTTP/2 的安全性也是有保障的。
 
-![HTT/1 ~ HTTP/2](https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/HTTP/25-HTTP2.png)
+
 
 那 HTTP/2 相比 HTTP/1.1 性能上的改进：
 
@@ -821,21 +759,19 @@ HTTP/2 会**压缩头**（Header）如果你同时发出多个请求，他们的
 
 HTTP/2 不再像 HTTP/1.1 里的纯文本形式的报文，而是全面采用了**二进制格式**，头信息和数据体都是二进制，并且统称为帧（frame）：**头信息帧（Headers Frame）和数据帧（Data Frame）**。
 
-![HTTP/1 与 HTTP/2](https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost4@main/%E7%BD%91%E7%BB%9C/http2/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%B8%A7.png)
+
 
 这样虽然对人不友好，但是对计算机非常友好，因为计算机只懂二进制，那么收到报文后，无需再将明文的报文转成二进制，而是直接解析二进制报文，这**增加了数据传输的效率**。
 
 比如状态码 200 ，在 HTTP/1.1 是用 '2''0''0' 三个字符来表示（二进制：00110010 00110000 00110000），共用了 3 个字节，如下图
 
-![img](https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost4@main/%E7%BD%91%E7%BB%9C/http2/http1.png)
 
 在 HTTP/2 对于状态码 200 的二进制编码是 10001000，只用了 1 字节就能表示，相比于 HTTP/1.1 节省了 2 个字节，如下图：
 
-![img](https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost4@main/%E7%BD%91%E7%BB%9C/http2/h2c.png)
+
 
 Header: :status: 200 OK 的编码内容为：1000 1000，那么表达的含义是什么呢？
 
-![](https://cdn.xiaolincoding.com/gh/xiaolincoder/network/http/index.png)
 
 1.  最前面的 1 标识该 Header 是静态表中已经存在的 KV。（至于什么是静态表，可以看这篇：[HTTP/2 牛逼在哪？](https://xiaolincoding.com/network/2_http/http2.html)）
 2.  在静态表理，“:status: 200 ok” 静态表编码是 8，二进制即是 1000。
@@ -848,7 +784,6 @@ Header: :status: 200 OK 的编码内容为：1000 1000，那么表达的含义�
 
 而 HTTP/2 就很牛逼了，引出了 Stream 概念，多个 Stream 复用在一条 TCP 连接。
 
-![](https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost4@main/%E7%BD%91%E7%BB%9C/http2/stream.png)
 
 从上图可以看到，1 个 TCP 连接包含多个 Stream，Stream 里可以包含 1 个或多个 Message，Message 对应 HTTP/1 中的请求或响应，由 HTTP 头部和包体构成。Message 里包含一条或者多个 Frame，Frame 是 HTTP/2 最小单位，以二进制压缩格式存放 HTTP/1 中的内容（头部和包体）。
 
@@ -856,7 +791,6 @@ Header: :status: 200 OK 的编码内容为：1000 1000，那么表达的含义�
 
 比如下图，服务端**并行交错地**发送了两个响应： Stream 1 和 Stream 3，这两个 Stream 都是跑在一个 TCP 连接上，客户端收到后，会根据相同的 Stream ID 有序组装成 HTTP 消息。
 
-![](https://cdn.xiaolincoding.com/gh/xiaolincoder/network/http/http2%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8.jpeg)
 
 #### 4、服务器推送
 
@@ -866,11 +800,11 @@ HTTP/2 还在一定程度上改善了传统的「请求 - 应答」工作模式�
 
 比如下图，Stream 1 是客户端向服务端请求的资源，属于客户端建立的 Stream，所以该 Stream 的 ID 是奇数（数字1）；Stream 2 和 4 都是服务端主动向客户端推送的资源，属于服务端建立的 Stream，所以这两个 Stream 的 ID 是偶数（数字 2 和4）。
 
-![](https://img-blog.csdnimg.cn/83445581dafe409d8cfd2c573b2781ac.png)
+
 
 再比如，客户端通过 HTTP/1.1 请求从服务器那获取到了 HTML 文件，而 HTML 可能还需要依赖 CSS 来渲染页面，这时客户端还要再发起获取 CSS 文件的请求，需要两次消息往返，如下图左边部分：
 
-![img](https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost4@main/%E7%BD%91%E7%BB%9C/http2/push.png)
+
 
 如上图右边部分，在 HTTP/2 中，客户端在访问 HTML 时，服务器可以直接主动推送 CSS 文件，减少了消息传递的次数。
 
@@ -880,11 +814,10 @@ HTTP/2 通过 Stream 的并发能力，解决了 HTTP/1 队头阻塞的问题，
 
 **HTTP/2 是基于 TCP 协议来传输数据的，TCP 是字节流协议，TCP 层必须保证收到的字节数据是完整且连续的，这样内核才会将缓冲区里的数据返回给 HTTP 应用，那么当「前 1 个字节数据」没有到达时，后收到的字节数据只能存放在内核缓冲区里，只有等到这 1 个字节数据到达时，HTTP/2 应用层才能从内核中拿到数据，这就是 HTTP/2 队头阻塞问题。**
 
-![](https://cdn.xiaolincoding.com/gh/xiaolincoder/network/quic/http2%E9%98%BB%E5%A1%9E.jpeg)
+
 
 举个例子，如下图：
 
-![img](https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost4@main/%E7%BD%91%E7%BB%9C/http3/tcp%E9%98%9F%E5%A4%B4%E9%98%BB%E5%A1%9E.gif)
 
 图中发送方发送了很多个 packet，每个 packet 都有自己的序号，你可以认为是 TCP 的序列号，其中 packet 3 在网络中丢失了，即使 packet 4-6 被接收方收到后，由于内核中的 TCP 数据不是连续的，于是接收方的应用层就无法从内核中读取到，只有等到 packet 3 重传后，接收方的应用层才可以从内核中读取到数据，这就是 HTTP/2 的队头阻塞问题，是在 TCP 层面发生的。
 
@@ -906,7 +839,7 @@ HTTP/2 通过 Stream 的并发能力，解决了 HTTP/1 队头阻塞的问题，
 
 HTTP/2 队头阻塞的问题是因为 TCP，所以 **HTTP/3 把 HTTP 下层的 TCP 协议改成了 UDP！**
 
-![HTTP/1 ~ HTTP/3](https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/HTTP/27-HTTP3.png)
+
 
 UDP 发送是不管顺序，也不管丢包的，所以不会出现像 HTTP/2 队头阻塞的问题。大家都知道 UDP 是不可靠传输的，但基于 UDP 的 **QUIC 协议** 可以实现类似 TCP 的可靠性传输。
 
@@ -924,7 +857,7 @@ QUIC 有自己的一套机制可以保证传输的可靠性的。**当某个流�
 
 所以，QUIC 连接上的多个 Stream 之间并没有依赖，都是独立的，某个流发生丢包了，只会影响该流，其他流不受影响。
 
-![](https://cdn.xiaolincoding.com/gh/xiaolincoder/network/quic/quic%E6%97%A0%E9%98%BB%E5%A1%9E.jpeg)
+
 
 #### 2、更快的连接建立
 
@@ -934,19 +867,19 @@ HTTP/3 在传输数据前虽然需要 QUIC 协议握手，这个握手过程只�
 
 但是 HTTP/3 的 QUIC 协议并不是与 TLS 分层，而是QUIC 内部包含了 TLS，它在自己的帧会携带 TLS 里的“记录”，再加上 QUIC 使用的是 TLS/1.3，因此仅需 1 个 RTT 就可以「同时」完成建立连接与密钥协商，如下图：
 
-![TCP HTTPS（TLS/1.3） 和 QUIC HTTPS](https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/HTTP/28-HTTP3%E4%BA%A4%E4%BA%92%E6%AC%A1%E6%95%B0.png)
+
 
 甚至，在第二次连接的时候，应用数据包可以和 QUIC 握手信息（连接信息 + TLS 信息）一起发送，达到 0-RTT 的效果。
 
 如下图右边部分，HTTP/3 当会话恢复时，有效负载数据与第一个数据包一起发送，可以做到 0-RTT（下图的右下角）：
 
-![](https://img-blog.csdnimg.cn/4cad213f5125432693e0e2a512c2d1a1.png)
+
 
 #### 3、连接迁移
 
 基于 TCP 传输协议的 HTTP 协议，由于是通过四元组（源 IP、源端口、目的 IP、目的端口）确定一条 TCP 连接。
 
-![TCP 四元组](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9jZG4uanNkZWxpdnIubmV0L2doL3hpYW9saW5jb2Rlci9JbWFnZUhvc3QyLyVFOCVBRSVBMSVFNyVBRSU5NyVFNiU5QyVCQSVFNyVCRCU5MSVFNyVCQiU5Qy9UQ1AtJUU0JUI4JTg5JUU2JUFDJUExJUU2JThGJUExJUU2JTg5JThCJUU1JTkyJThDJUU1JTlCJTlCJUU2JUFDJUExJUU2JThDJUE1JUU2JTg5JThCLzEwLmpwZw?x-oss-process=image/format,png)
+
 
 那么**当移动设备的网络从 4G 切换到 WIFI 时，意味着 IP 地址变化了，那么就必须要断开连接，然后重新建立连接**。而建立连接的过程包含 TCP 三次握手和 TLS 四次握手的时延，以及 TCP 慢启动的减速过程，给用户的感觉就是网络突然卡顿了一下，因此连接的迁移成本是很高的。
 
@@ -999,8 +932,7 @@ SSL 是洋文 “_Secure Sockets Layer_ 的缩写，中文叫做「安全套接�
 
 SSL/TLS 1.2 需要 4 握手，需要 2 个 RTT 的时延，我文中的图是把每个交互分开画了，实际上把他们合在一起发送，就是 4 次握手：
 
-![](https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/HTTP/29-TLS1.2-%E5%9B%9B%E6%AC%A1%E6%8F%A1%E6%89%8B.png)
+
 
 另外， SSL/TLS 1.3 优化了过程，只需要 1 个 RTT 往返时延，也就是只需要 3 次握手：
 
-![T](https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/HTTP/30-TLS1.3.png)
